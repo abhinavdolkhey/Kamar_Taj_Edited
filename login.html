@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Kamar-Taj — The Refectory</title>
+    <meta name="description" content="Student and administrator login for Kamar-Taj — The Refectory frontend demo.">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="login-page">
+    <div class="demo-banner">
+        <div class="container demo-banner-inner">
+            <div class="demo-banner-text">
+                <span class="badge-pill-demo">Frontend Demo</span>
+                <span>No authentication service is connected yet.</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-link" aria-label="Kamar-Taj The Refectory Home">
+                <img src="assets/logo.svg" alt="Kamar-Taj emblem" class="brand-logo">
+                <div class="brand-text">
+                    <span class="brand-title">Kamar-Taj</span>
+                    <span class="brand-subtitle">The Refectory</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="student.html" class="nav-link">Student Portal</a></li>
+                    <li><a href="admin.html" class="nav-link">Admin Portal</a></li>
+                    <li><a href="login.html" class="nav-link active" aria-current="page">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content login-main">
+        <section class="login-panel" aria-labelledby="login-title">
+            <div class="login-heading">
+                <h1 id="login-title">Welcome Back</h1>
+                <p>Choose your account type to continue.</p>
+            </div>
+
+            <fieldset class="login-role-selector">
+                <legend>Sign in as</legend>
+                <label class="login-role-option">
+                    <input type="radio" name="login-role" value="student" checked>
+                    <span>Student</span>
+                </label>
+                <label class="login-role-option">
+                    <input type="radio" name="login-role" value="admin">
+                    <span>Admin</span>
+                </label>
+            </fieldset>
+
+            <form id="login-form" class="login-form" novalidate>
+                <div class="form-group">
+                    <label id="login-username-label" class="form-label" for="login-username">College roll number</label>
+                    <input class="form-input" id="login-username" name="username" type="text"
+                        placeholder="e.g. KT-2026-CS104" autocomplete="username" required
+                        aria-describedby="username-error">
+                    <span id="username-error" class="login-field-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="login-password">Password</label>
+                    <div class="login-password-wrap">
+                        <input class="form-input" id="login-password" name="password" type="password"
+                            placeholder="Enter your password" autocomplete="current-password" required
+                            aria-describedby="password-error">
+                        <button class="password-toggle" id="toggle-password" type="button" aria-label="Show password"
+                            aria-pressed="false">Show</button>
+                    </div>
+                    <span id="password-error" class="login-field-error" aria-live="polite"></span>
+                </div>
+
+                <div id="login-message" class="login-message" role="status" aria-live="polite"></div>
+                <button class="btn btn-primary btn-block login-submit" type="submit">Login</button>
+            </form>
+
+            <p class="login-demo-note">Submitting this form will not sign you in. Authentication will be added in a
+                later phase.</p>
+            <a class="login-home-link" href="index.html">&larr; Return to homepage</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="assets/logo.svg" alt="" width="28" height="28">
+                <span>Kamar-Taj — The Refectory</span>
+            </div>
+            <p>Frontend prototype • Authentication is not yet connected.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

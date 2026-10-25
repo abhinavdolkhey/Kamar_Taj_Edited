@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal | Kamar-Taj — The Refectory</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Demo Notice Banner -->
+  <div class="demo-banner">
+    <div class="container demo-banner-inner">
+      <div class="demo-banner-text">
+        <span class="badge-pill-demo">Frontend Prototype</span>
+        <span>Student Session: Registration toggles are interactive in this tab, but not permanently saved.</span>
+      </div>
+      <div>
+        <span style="font-size: 0.8rem; color: #78350f;">Demo Student: Stephen Strange</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link">
+        <img src="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg" alt="Kamar-Taj Logo" class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-title">Kamar-Taj</span>
+          <span class="brand-subtitle">Student Portal</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="student.html" class="nav-link active">Student Portal</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Portal</a></li>
+          <li><a href="index.html#feedback" class="nav-link">Feedback</a></li>
+          <li><a href="index.html" class="nav-link" style="color: var(--text-muted);">&larr; Back</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- ====================================================================
+           1. STUDENT PROFILE SECTION (DEMO DATA)
+           ==================================================================== -->
+      <section class="profile-card" aria-label="Student Profile Overview">
+        <div class="profile-identity">
+          <div class="avatar-circle">SS</div>
+          <div class="profile-details">
+            <h2>Stephen Strange</h2>
+            <div class="profile-meta">
+              <span><strong>Roll:</strong> KT-2026-CS104</span>
+              <span class="meta-divider">•</span>
+              <span><strong>Hostel:</strong> Block B, Room 302</span>
+              <span class="meta-divider">•</span>
+              <span><strong>Diet:</strong> Lacto-Vegetarian</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-badges">
+          <span class="status-badge active-plan">Active Semester Pass</span>
+          <span class="status-badge registered">Hostel Mess A</span>
+        </div>
+      </section>
+
+      <!-- Section Title & Instructional Alert -->
+      <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">Today's Meal Registrations</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            Please register or cancel before each meal deadline to help kitchen staff avoid food waste.
+          </p>
+        </div>
+        <small style="color: var(--accent-purple); font-weight: 700; background: #ede9fe; border: 1px solid #ddd6fe; padding: 0.3rem 0.7rem; border-radius: 6px;">
+          📅 Today: Monday, Refectory Cycle 1
+        </small>
+      </div>
+
+      <!-- ====================================================================
+           2. THREE MEAL CARDS (BREAKFAST, LUNCH, DINNER)
+           Interactive buttons toggle state locally via app.js
+           ==================================================================== -->
+      <section class="meal-cards-grid" aria-label="Daily Meal Cards">
+        
+        <!-- CARD 1: BREAKFAST -->
+        <article class="meal-card" data-meal-name="Breakfast">
+          <div class="meal-card-header">
+            <div class="meal-time-info">
+              <h3 class="meal-title">🥞 Breakfast</h3>
+              <span class="meal-slot-time">Slot: 07:30 AM – 09:00 AM</span>
+            </div>
+            <!-- Initial Status: Registered -->
+            <span class="status-badge registered">Registered ✓</span>
+          </div>
+
+          <div class="meal-card-body">
+            <div>
+              <div class="menu-label">Today's Menu:</div>
+              <ul class="menu-list">
+                <li>Steamed Idli & Medu Vada</li>
+                <li>Coconut Chutney & Madras Sambar</li>
+                <li>Poha with crunchy peanuts</li>
+                <li>Fresh Masala Chai / Filter Coffee</li>
+              </ul>
+
+              <div class="tag-chips">
+                <span class="tag-chip">South Indian</span>
+                <span class="tag-chip">High Protein</span>
+                <span class="tag-chip">Vegetarian</span>
+              </div>
+            </div>
+
+            <!-- Deadline notice -->
+            <div class="deadline-notice">
+              <span>⏰</span>
+              <span><strong>Deadline:</strong> Closed at 07:00 AM</span>
+            </div>
+          </div>
+
+          <div class="meal-card-footer">
+            <button class="btn-toggle-meal is-registered" type="button">
+              Cancel Breakfast Registration
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 2: LUNCH -->
+        <article class="meal-card" data-meal-name="Lunch">
+          <div class="meal-card-header">
+            <div class="meal-time-info">
+              <h3 class="meal-title">🍛 Lunch</h3>
+              <span class="meal-slot-time">Slot: 12:30 PM – 02:00 PM</span>
+            </div>
+            <!-- Initial Status: Registered -->
+            <span class="status-badge registered">Registered ✓</span>
+          </div>
+
+          <div class="meal-card-body">
+            <div>
+              <div class="menu-label">Today's Menu:</div>
+              <ul class="menu-list">
+                <li>Paneer Butter Masala & Dal Tadka</li>
+                <li>Fragrant Jeera Rice</li>
+                <li>Tawa Phulkas / Fresh Roti</li>
+                <li>Cucumber & Mint Boondi Raita</li>
+                <li>Seasonal Gulab Jamun (1 pc)</li>
+              </ul>
+
+              <div class="tag-chips">
+                <span class="tag-chip">North Indian</span>
+                <span class="tag-chip">Full Meal</span>
+                <span class="tag-chip">Special Dessert</span>
+              </div>
+            </div>
+
+            <!-- Deadline notice -->
+            <div class="deadline-notice">
+              <span>⏰</span>
+              <span><strong>Deadline:</strong> Closes at 10:30 AM</span>
+            </div>
+          </div>
+
+          <div class="meal-card-footer">
+            <button class="btn-toggle-meal is-registered" type="button">
+              Cancel Lunch Registration
+            </button>
+          </div>
+        </article>
+
+        <!-- CARD 3: DINNER -->
+        <article class="meal-card" data-meal-name="Dinner">
+          <div class="meal-card-header">
+            <div class="meal-time-info">
+              <h3 class="meal-title">🍲 Dinner</h3>
+              <span class="meal-slot-time">Slot: 07:30 PM – 09:00 PM</span>
+            </div>
+            <!-- Initial Status: Not Registered (For demonstration) -->
+            <span class="status-badge not-registered">Not Registered</span>
+          </div>
+
+          <div class="meal-card-body">
+            <div>
+              <div class="menu-label">Today's Menu:</div>
+              <ul class="menu-list">
+                <li>Rich Dal Makhani (Slow cooked)</li>
+                <li>Kadai Vegetable Medley</li>
+                <li>Steamed Basmati Rice</li>
+                <li>Fresh Whole Wheat Rotis</li>
+                <li>Kheer / Sweet Rice Pudding</li>
+              </ul>
+
+              <div class="tag-chips">
+                <span class="tag-chip">Comfort Meal</span>
+                <span class="tag-chip">Low Oil</span>
+                <span class="tag-chip">Vegetarian</span>
+              </div>
+            </div>
+
+            <!-- Deadline notice -->
+            <div class="deadline-notice" style="background-color: #ecfdf5; border-left-color: #10b981; color: #065f46;">
+              <span>🟢</span>
+              <span><strong>Open:</strong> Registration closes at 05:00 PM</span>
+            </div>
+          </div>
+
+          <div class="meal-card-footer">
+            <button class="btn-toggle-meal is-not-registered" type="button">
+              Register for Dinner
+            </button>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- ====================================================================
+           3. SUBGRID: QR PASS PLACEHOLDER & UPCOMING MEALS PREVIEW
+           ==================================================================== -->
+      <div class="student-subgrid">
+        
+        <!-- PLACEHOLDER FEATURE: QR MEAL PASS -->
+        <section class="card-panel" aria-label="Digital Meal Pass Placeholder">
+          <div class="panel-header">
+            <h3 class="panel-title">
+              <span>📱</span> Digital Meal Pass
+            </h3>
+            <span class="status-badge registered">Ready for Entry</span>
+          </div>
+
+          <div class="qr-preview-box">
+            <!-- Mock SVG QR Graphic -->
+            <svg class="qr-code-graphic" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Corner finder patterns -->
+              <rect x="5" y="5" width="26" height="26" fill="#0f172a" rx="4"/>
+              <rect x="9" y="9" width="18" height="18" fill="#ffffff" rx="2"/>
+              <rect x="13" y="13" width="10" height="10" fill="#7c3aed"/>
+
+              <rect x="69" y="5" width="26" height="26" fill="#0f172a" rx="4"/>
+              <rect x="73" y="9" width="18" height="18" fill="#ffffff" rx="2"/>
+              <rect x="77" y="13" width="10" height="10" fill="#7c3aed"/>
+
+              <rect x="5" y="69" width="26" height="26" fill="#0f172a" rx="4"/>
+              <rect x="9" y="73" width="18" height="18" fill="#ffffff" rx="2"/>
+              <rect x="13" y="77" width="10" height="10" fill="#7c3aed"/>
+
+              <!-- Central QR data modules -->
+              <rect x="36" y="8" width="6" height="6" fill="#0f172a"/>
+              <rect x="46" y="8" width="6" height="6" fill="#0f172a"/>
+              <rect x="56" y="8" width="6" height="6" fill="#0f172a"/>
+              <rect x="36" y="20" width="16" height="6" fill="#0f172a"/>
+              <rect x="8" y="38" width="8" height="8" fill="#0f172a"/>
+              <rect x="22" y="38" width="16" height="8" fill="#0f172a"/>
+              <rect x="44" y="36" width="12" height="12" fill="#f59e0b"/>
+              <rect x="62" y="38" width="8" height="8" fill="#0f172a"/>
+              <rect x="76" y="38" width="16" height="8" fill="#0f172a"/>
+              <rect x="36" y="54" width="8" height="8" fill="#0f172a"/>
+              <rect x="50" y="54" width="16" height="8" fill="#0f172a"/>
+              <rect x="72" y="54" width="8" height="8" fill="#0f172a"/>
+              <rect x="38" y="70" width="12" height="12" fill="#0f172a"/>
+              <rect x="56" y="70" width="8" height="8" fill="#0f172a"/>
+              <rect x="70" y="70" width="16" height="16" fill="#0f172a"/>
+              <rect x="38" y="86" width="26" height="6" fill="#0f172a"/>
+            </svg>
+
+            <span class="qr-token-label">Token: #KT-9482</span>
+
+            <p class="qr-placeholder-note">
+              <strong>Phase 2 Feature Preview:</strong> In the full release, this dynamic QR pass will be scanned at the mess counter to verify entrance and mark your meal collected in real time.
+            </p>
+
+            <button type="button" id="btn-refresh-qr" class="btn btn-secondary btn-sm" style="margin-top: 0.5rem;">
+              🔄 Refresh Token (Demo Simulation)
+            </button>
+          </div>
+        </section>
+
+        <!-- UPCOMING MEALS PREVIEW -->
+        <section class="card-panel" aria-label="Upcoming Meals Schedule">
+          <div class="panel-header">
+            <h3 class="panel-title">
+              <span>📅</span> Upcoming Meals (Tomorrow)
+            </h3>
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Refectory Cycle 2</span>
+          </div>
+
+          <div class="upcoming-meals-list">
+            <!-- Upcoming 1 -->
+            <div class="upcoming-meal-item">
+              <div class="upcoming-date-box">
+                <span class="upcoming-day">Tomorrow Breakfast</span>
+                <span class="upcoming-date">07:30 AM – 09:00 AM</span>
+              </div>
+              <div class="upcoming-menu-desc">
+                Aloo Paratha with Curd, Mint Pickle & Hot Chai
+              </div>
+              <div>
+                <span class="status-badge not-registered" style="font-size: 0.7rem;">Opens 8 PM</span>
+              </div>
+            </div>
+
+            <!-- Upcoming 2 -->
+            <div class="upcoming-meal-item">
+              <div class="upcoming-date-box">
+                <span class="upcoming-day">Tomorrow Lunch</span>
+                <span class="upcoming-date">12:30 PM – 02:00 PM</span>
+              </div>
+              <div class="upcoming-menu-desc">
+                Rajma Masala, Steamed Rice, Roti & Fresh Kachumber
+              </div>
+              <div>
+                <span class="status-badge not-registered" style="font-size: 0.7rem;">Opens 8 PM</span>
+              </div>
+            </div>
+
+            <!-- Upcoming 3 -->
+            <div class="upcoming-meal-item">
+              <div class="upcoming-date-box">
+                <span class="upcoming-day">Tomorrow Dinner</span>
+                <span class="upcoming-date">07:30 PM – 09:00 PM</span>
+              </div>
+              <div class="upcoming-menu-desc">
+                Mixed Veg Korma, Dal Palak, Phulka & Moong Halwa
+              </div>
+              <div>
+                <span class="status-badge not-registered" style="font-size: 0.7rem;">Opens 8 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Advance bookings open every night at 8:00 PM</span>
+            <a href="#" onclick="alert('Full weekly cycle view will be available in Phase 2.'); return false;" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-purple);">View Weekly PDF &rarr;</a>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg" alt="Kamar-Taj Logo" style="width: 28px; height: 28px;">
+        <span>Kamar-Taj — The Refectory</span>
+      </div>
+
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="student.html">Student Portal</a></li>
+        <li><a href="admin.html">Admin Portal</a></li>
+        <li><a href="index.html#feedback">Feedback</a></li>
+      </ul>
+
+      <div class="footer-disclaimer">
+        <p>
+          🎓 College Hackathon Project • Phase 1 Frontend Foundation. Registrations shown are frontend session state demonstrations.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
+

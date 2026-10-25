@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & Kitchen Console | Kamar-Taj — The Refectory</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Demo Notice Banner -->
+  <div class="demo-banner">
+    <div class="container demo-banner-inner">
+      <div class="demo-banner-text">
+        <span class="badge-pill-demo">Demo Data</span>
+        <span>Mess Supervisor Terminal • All registration headcounts and waste figures are simulated sample data.</span>
+      </div>
+      <div>
+        <button id="btn-reset-admin" type="button" class="btn btn-sm" style="background: transparent; color: #78350f; border: 1px solid #d97706; padding: 0.2rem 0.5rem; font-size: 0.75rem; cursor: pointer;">
+          Reset Demo Counts ↺
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link">
+        <img src="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg" alt="Kamar-Taj Logo" class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-title">Kamar-Taj</span>
+          <span class="brand-subtitle">Admin & Kitchen Console</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="student.html" class="nav-link">Student Portal</a></li>
+          <li><a href="admin.html" class="nav-link active">Admin Portal</a></li>
+          <li><a href="index.html#feedback" class="nav-link">Feedback</a></li>
+          <li><a href="index.html" class="nav-link" style="color: var(--text-muted);">&larr; Back</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- ====================================================================
+           1. ADMIN HEADER BAR
+           ==================================================================== -->
+      <section class="admin-header-bar">
+        <div class="admin-title-group">
+          <h2>Refectory Operations Overview</h2>
+          <p class="admin-subtitle">
+            Terminal: <strong>Central Dining Hall Counter 1</strong> • Supervising Warden: <strong>Prof. Hamir</strong>
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <span class="status-badge registered">● Kitchen Live</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">
+            Cycle: Lunch Service In-Progress
+          </span>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. SUMMARY KPI CARDS (SAMPLE METRICS)
+           ==================================================================== -->
+      <section class="metrics-grid" aria-label="Key Performance Metrics">
+        
+        <!-- Metric 1: Total Registrations -->
+        <article class="metric-card">
+          <div class="metric-header">
+            <span class="metric-title">Total Registrations Today</span>
+            <span class="metric-icon">📋</span>
+          </div>
+          <div class="metric-value">520</div>
+          <div class="metric-trend trend-up">
+            <span>↑ 80%</span>
+            <span style="color: var(--text-muted); font-weight: normal;">of 650 total hostelites</span>
+          </div>
+        </article>
+
+        <!-- Metric 2: Meals Served (Dynamically updated via JS simulation) -->
+        <article class="metric-card">
+          <div class="metric-header">
+            <span class="metric-title">Meals Served So Far</span>
+            <span class="metric-icon">🍽️</span>
+          </div>
+          <div class="metric-value" id="stat-served-count">345</div>
+          <div class="metric-trend trend-up">
+            <span>● Live Count</span>
+            <span style="color: var(--text-muted); font-weight: normal;">(Breakfast + Lunch)</span>
+          </div>
+        </article>
+
+        <!-- Metric 3: Estimated Leftovers / Unclaimed -->
+        <article class="metric-card">
+          <div class="metric-header">
+            <span class="metric-title">Estimated Leftovers / Unclaimed</span>
+            <span class="metric-icon">⏳</span>
+          </div>
+          <div class="metric-value" id="stat-leftover-count" style="color: var(--accent-gold);">175</div>
+          <div class="metric-trend trend-neutral">
+            <span>Estimated balance</span>
+            <span style="color: var(--text-muted); font-weight: normal;">for current slot</span>
+          </div>
+        </article>
+
+        <!-- Metric 4: Food Waste Saved -->
+        <article class="metric-card">
+          <div class="metric-header">
+            <span class="metric-title">Estimated Food Saved</span>
+            <span class="metric-icon">🌱</span>
+          </div>
+          <div class="metric-value" style="color: var(--success);">~42 kg</div>
+          <div class="metric-trend trend-up">
+            <span>-28% Waste</span>
+            <span style="color: var(--text-muted); font-weight: normal;">vs untracked batch prep</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- ====================================================================
+           3. SAMPLE COUNTS BY MEAL SLOT (BREAKFAST, LUNCH, DINNER)
+           ==================================================================== -->
+      <div style="margin-bottom: 1.25rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary);">Meal Slot Headcounts & Kitchen Prep Targets</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Actual registered numbers allow chefs to prepare exact batch sizes rather than overproducing.
+        </p>
+      </div>
+
+      <section class="admin-slot-grid" aria-label="Meal Slot Breakdown">
+        
+        <!-- Slot 1: Breakfast -->
+        <div class="slot-card">
+          <div class="slot-header">
+            <span class="slot-name">🥞 Breakfast (Completed)</span>
+            <span class="status-badge not-registered" style="font-size: 0.7rem;">Service Closed</span>
+          </div>
+          <div class="slot-counts-row">
+            <div class="slot-count-item">
+              <span class="slot-count-label">Registered</span>
+              <span class="slot-count-num">410</span>
+            </div>
+            <div class="slot-count-item">
+              <span class="slot-count-label">Served</span>
+              <span class="slot-count-num">395</span>
+            </div>
+            <div class="slot-count-item">
+              <span class="slot-count-label">No-Shows</span>
+              <span class="slot-count-num" style="color: var(--text-muted);">15</span>
+            </div>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 96%; background-color: var(--success);"></div>
+          </div>
+          <div class="slot-caption">
+            <span>Turnout: 96.3%</span>
+            <span>Food Leftover: 4 kg (Minimal)</span>
+          </div>
+        </div>
+
+        <!-- Slot 2: Lunch -->
+        <div class="slot-card">
+          <div class="slot-header">
+            <span class="slot-name">🍛 Lunch (Active Slot)</span>
+            <span class="status-badge registered" style="font-size: 0.7rem;">In Progress</span>
+          </div>
+          <div class="slot-counts-row">
+            <div class="slot-count-item">
+              <span class="slot-count-label">Registered</span>
+              <span class="slot-count-num">480</span>
+            </div>
+            <div class="slot-count-item">
+              <span class="slot-count-label">Served</span>
+              <span class="slot-count-num" style="color: var(--accent-purple);">310</span>
+            </div>
+            <div class="slot-count-item">
+              <span class="slot-count-label">Expected</span>
+              <span class="slot-count-num">170</span>
+            </div>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 64%;"></div>
+          </div>
+          <div class="slot-caption">
+            <span>Tokens Collected: 64%</span>
+            <span>Window closes 02:00 PM</span>
+          </div>
+        </div>
+
+        <!-- Slot 3: Dinner -->
+        <div class="slot-card">
+          <div class="slot-header">
+            <span class="slot-name">🍲 Dinner (Upcoming)</span>
+            <span class="status-badge active-plan" style="font-size: 0.7rem;">Registration Open</span>
+          </div>
+          <div class="slot-counts-row">
+            <div class="slot-count-item">
+              <span class="slot-count-label">Registered</span>
+              <span class="slot-count-num">390</span>
+            </div>
+            <div class="slot-count-item">
+              <span class="slot-count-label">Prep Target</span>
+              <span class="slot-count-num">410</span>
+            </div>
+            <div class="slot-count-item">
+              <span class="slot-count-label">Cutoff Time</span>
+              <span class="slot-count-num" style="font-size: 1rem; color: var(--accent-gold);">5:00 PM</span>
+            </div>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" style="width: 58%; background-color: var(--accent-gold);"></div>
+          </div>
+          <div class="slot-caption">
+            <span>Buffer Margin: +5%</span>
+            <span>Final count locks in 2 hrs</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           4. PLACEHOLDER TOOLS: QR VERIFICATION & FOOD WASTE TRACKING
+           ==================================================================== -->
+      <section class="admin-tools-grid">
+        
+        <!-- PLACEHOLDER 1: QR VERIFICATION SCANNER SIMULATOR -->
+        <div class="card-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">
+              <span>📷</span> Express QR Verification Counter
+            </h3>
+            <span class="status-badge registered">Scanner Ready</span>
+          </div>
+
+          <div class="qr-scanner-sim-box">
+            <div class="scanner-viewfinder">
+              <span class="scanner-live-badge">READY</span>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
+              </svg>
+              <p style="font-size: 0.85rem; color: #cbd5e1; text-align: center; max-width: 280px;">
+                Point webcam or barcode scanner at student's digital meal pass.
+              </p>
+            </div>
+
+            <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.45;">
+              <strong>Phase 2 Camera Integration Placeholder:</strong> In production, counter staff will use device camera or hardware laser scanner. Test the scanner workflow with the simulation button below:
+            </p>
+
+            <div class="scanner-actions">
+              <button id="btn-simulate-scan" type="button" class="btn btn-primary btn-block">
+                <span>⚡ Simulate Student Scan</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLACEHOLDER 2: FOOD-WASTE TRACKING & KITCHEN BATCH PROJECTION -->
+        <div class="card-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">
+              <span>📊</span> Food Waste Tracking & Kitchen Prep
+            </h3>
+            <span class="status-badge" style="background: #dbeafe; color: #1e40af;">Analytics Preview</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.35rem;">
+                <span>Daily Mess Food Waste Reduction Goal</span>
+                <span style="color: var(--success);">78% of Target Achieved</span>
+              </div>
+              <div class="progress-bar-container" style="height: 10px;">
+                <div class="progress-bar-fill" style="width: 78%; background-color: var(--success);"></div>
+              </div>
+              <small style="color: var(--text-muted); font-size: 0.775rem;">
+                Target: Keep daily plate waste below 15 kg for a 650-hostel community.
+              </small>
+            </div>
+
+            <!-- Kitchen Batch Preparation Suggestions -->
+            <div style="background: var(--surface-alt); border-radius: var(--radius-sm); padding: 1rem; border: 1px solid var(--border);">
+              <h4 style="font-size: 0.85rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; text-transform: uppercase;">
+                Smart Kitchen Batch Calculator (Based on 480 Lunch Registrations)
+              </h4>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.825rem;">
+                <li style="display: flex; justify-content: space-between;">
+                  <span>• Basmati Jeera Rice:</span>
+                  <strong>52 kg (Saved 18 kg vs default)</strong>
+                </li>
+                <li style="display: flex; justify-content: space-between;">
+                  <span>• Paneer Butter Masala:</span>
+                  <strong>48 kg (Saved 12 kg vs default)</strong>
+                </li>
+                <li style="display: flex; justify-content: space-between;">
+                  <span>• Dal Tadka:</span>
+                  <strong>45 Liters (Saved 15 L vs default)</strong>
+                </li>
+                <li style="display: flex; justify-content: space-between;">
+                  <span>• Fresh Tawa Rotis:</span>
+                  <strong>1,150 pcs (Batch 2 on demand)</strong>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.45;">
+              <strong>Phase 2 Analytics Placeholder:</strong> In the next phase, smart IoT bin scales and post-meal audit logs will feed automated charts for warden reports.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           5. MEAL REGISTRATION SUMMARY TABLE (DEMO DATA)
+           ==================================================================== -->
+      <section class="card-panel">
+        <div class="panel-header" style="flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h3 class="panel-title">
+              <span>📋</span> Meal Registration Summary Table
+            </h3>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">
+              Live student registration roster (Showing sample cohort data)
+            </span>
+          </div>
+
+          <!-- Real-time search filter -->
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <input 
+              type="text" 
+              id="table-search-input" 
+              placeholder="Search student, roll, room..." 
+              style="padding: 0.45rem 0.85rem; font-size: 0.825rem; border: 1px solid var(--border); border-radius: var(--radius-sm); outline: none; width: 220px;"
+            >
+          </div>
+        </div>
+
+        <div class="table-responsive-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Roll Number</th>
+                <th>Hostel Room</th>
+                <th>Meal Slot</th>
+                <th>Token Pass</th>
+                <th>Status</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody id="admin-roster-body">
+              <!-- Row 1 -->
+              <tr>
+                <td><strong>Stephen Strange</strong></td>
+                <td>KT-CS-104</td>
+                <td>B-302</td>
+                <td><span class="status-badge registered">Lunch</span></td>
+                <td><span class="table-token-badge">#KT-9482</span></td>
+                <td><span class="status-badge registered">Verified ✓</span></td>
+                <td><small class="text-muted">12:35 PM</small></td>
+              </tr>
+
+              <!-- Row 2 -->
+              <tr>
+                <td><strong>Aarav Sharma</strong></td>
+                <td>KT-CS-112</td>
+                <td>A-104</td>
+                <td><span class="status-badge registered">Lunch</span></td>
+                <td><span class="table-token-badge">#KT-4821</span></td>
+                <td><span class="status-badge registered">Verified ✓</span></td>
+                <td><small class="text-muted">12:38 PM</small></td>
+              </tr>
+
+              <!-- Row 3 -->
+              <tr>
+                <td><strong>Priya Iyer</strong></td>
+                <td>KT-EE-205</td>
+                <td>C-215</td>
+                <td><span class="status-badge registered">Lunch</span></td>
+                <td><span class="table-token-badge">#KT-3819</span></td>
+                <td><span class="status-badge not-registered">Pending Entry</span></td>
+                <td><small class="text-muted">Opt-in 09:12 AM</small></td>
+              </tr>
+
+              <!-- Row 4 -->
+              <tr>
+                <td><strong>Rohan Verma</strong></td>
+                <td>KT-ME-301</td>
+                <td>B-118</td>
+                <td><span class="status-badge registered">Lunch</span></td>
+                <td><span class="table-token-badge">#KT-7294</span></td>
+                <td><span class="status-badge registered">Verified ✓</span></td>
+                <td><small class="text-muted">12:44 PM</small></td>
+              </tr>
+
+              <!-- Row 5 -->
+              <tr>
+                <td><strong>Ananya Sen</strong></td>
+                <td>KT-BT-108</td>
+                <td>D-402</td>
+                <td><span class="status-badge registered">Lunch</span></td>
+                <td><span class="table-token-badge">#KT-5510</span></td>
+                <td><span class="status-badge not-registered">Pending Entry</span></td>
+                <td><small class="text-muted">Opt-in 08:45 AM</small></td>
+              </tr>
+
+              <!-- Row 6 -->
+              <tr>
+                <td><strong>Karan Patel</strong></td>
+                <td>KT-CE-092</td>
+                <td>A-310</td>
+                <td><span class="status-badge registered">Dinner</span></td>
+                <td><span class="table-token-badge">#KT-8123</span></td>
+                <td><span class="status-badge not-registered">Registered</span></td>
+                <td><small class="text-muted">Opt-in 01:15 PM</small></td>
+              </tr>
+
+              <!-- Row 7 -->
+              <tr>
+                <td><strong>Tanvi Joshi</strong></td>
+                <td>KT-CS-140</td>
+                <td>C-109</td>
+                <td><span class="status-badge registered">Dinner</span></td>
+                <td><span class="table-token-badge">#KT-6430</span></td>
+                <td><span class="status-badge not-registered">Registered</span></td>
+                <td><small class="text-muted">Opt-in 02:00 PM</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); flex-wrap: wrap; gap: 0.5rem;">
+          <span>Showing sample records from active shift roster</span>
+          <span>Tip: Use the search bar above to test instant live filtering.</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg" alt="Kamar-Taj Logo" style="width: 28px; height: 28px;">
+        <span>Kamar-Taj — The Refectory</span>
+      </div>
+
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="student.html">Student Portal</a></li>
+        <li><a href="admin.html">Admin Portal</a></li>
+        <li><a href="index.html#feedback">Feedback</a></li>
+      </ul>
+
+      <div class="footer-disclaimer">
+        <p>
+          🎓 College Hackathon Project • Phase 1 Frontend Foundation. All statistics, student records, and metrics are simulated for demonstration purposes.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
+

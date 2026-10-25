@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamar-Taj — The Refectory | Hostel Mess Management System</title>
+  <meta name="description"
+    content="Modern college hostel mess management platform for meal registration, collection tracking, and food-waste reduction.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       DEMO NOTICE BANNER
+       Clear, honest indication of hackathon prototype & sample data
+       ======================================================================== -->
+  <div class="demo-banner">
+    <div class="container demo-banner-inner">
+      <div class="demo-banner-text">
+        <span class="badge-pill-demo">Demo Mode</span>
+        <span>Phase 1 Frontend Prototype • Interactive UI with sample data (No backend connected yet)</span>
+      </div>
+      <div>
+        <a href="#quick-tour" class="demo-banner-link">Explore Features &darr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       HEADER & NAVIGATION
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Kamar-Taj The Refectory Home">
+        <img src="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg" alt="Kamar-Taj Emblem"
+          class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-title">Kamar-Taj</span>
+          <span class="brand-subtitle">The Refectory</span>
+        </div>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="student.html" class="nav-link">Student Portal</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Portal</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="#feedback" class="nav-link">Feedback</a></li>
+          <li><a href="student.html" class="nav-cta-btn">Book Meal &rarr;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MAIN HERO SECTION
+       ======================================================================== -->
+  <main class="main-content">
+    <div class="container">
+      <section class="hero-section">
+        <div class="hero-pill">
+          <span>✨ Smart FoodTech</span>
+          <span>•</span>
+          <span>Built For Campus Life</span>
+        </div>
+
+        <h1 class="hero-title">
+          Simplifying Hostel Mess Life with <br>
+          <span class="highlight">Predictable Meals & Zero Waste</span>
+        </h1>
+
+        <p class="hero-description">
+          <strong class="brand-font">Kamar-Taj — The Refectory</strong> solves the two biggest challenges in college
+          hostel dining:
+          endless dining hall queues for students and unpredictable headcount guessing for mess managers.
+          Register in seconds, breeze through meal collections, and stop food from landing in the bin.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="student.html" class="btn btn-primary">
+            <span>🎓 Student Portal</span>
+            <span>&rarr;</span>
+          </a>
+          <a href="admin.html" class="btn btn-secondary">
+            <span>🛡️ Mess Admin Portal</span>
+          </a>
+          <a href="login.html" class="btn btn-secondary">Login</a>
+        </div>
+
+        <!-- Sample Live Metrics Highlights -->
+        <div class="hero-stats-row">
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">98%</div>
+            <div class="hero-stat-label">Headcount Accuracy (Target)</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">~30%</div>
+            <div class="hero-stat-label">Projected Food Waste Cut</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">&lt; 3s</div>
+            <div class="hero-stat-label">Fast Token QR Verification</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           THE 3 PILLARS: PROBLEM & SOLUTION
+           ==================================================================== -->
+      <section id="quick-tour" class="section-container" style="padding-top: 2rem;">
+        <div class="section-header">
+          <span class="section-badge">How It Works</span>
+          <h2 class="section-title">One Platform, Complete Refectory Harmony</h2>
+          <p class="section-subtitle">
+            Designed specifically for student convenience, fast hostel operations, and green kitchen management.
+          </p>
+        </div>
+
+        <!-- Swipable Feature Carousel -->
+        <div class="feature-carousel-container" aria-roledescription="carousel" aria-label="How It Works Features">
+
+          <!-- Meta Status Bar with Step Badge & Hint -->
+          <div class="carousel-meta-bar">
+            <span class="carousel-step-badge" id="carousel-step-indicator">Feature 1 of 3</span>
+            <span class="carousel-swipe-hint">👈 Swipe or use arrows 👉</span>
+          </div>
+
+          <!-- Carousel Stage with Arrow Buttons and Viewport -->
+          <div class="carousel-stage">
+            <button type="button" class="carousel-arrow carousel-arrow-prev" id="carousel-btn-prev"
+              aria-label="Previous Feature">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="22" height="22">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <!-- Overflow Viewport -->
+            <div class="carousel-viewport" id="carousel-viewport">
+              <div class="carousel-track" id="carousel-track">
+
+                <!-- Slide 1 -->
+                <div class="carousel-slide" aria-roledescription="slide" aria-label="1 of 3">
+                  <article class="feature-card-slide">
+                    <div class="feature-slide-header">
+                      <div class="feature-icon-wrapper icon-violet">
+                        <span>🍱</span>
+                      </div>
+                      <span class="feature-slide-pill" style="background: #ede9fe; color: var(--accent-purple);">Pillar
+                        01 • Student Opt-In</span>
+                    </div>
+                    <h3>Simple Meal Registration</h3>
+                    <p>
+                      Students opt in or opt out of Breakfast, Lunch, and Dinner before set daily deadlines.
+                      No forced meal charges when traveling or eating out, giving hostelites complete control over their
+                      dining schedule.
+                    </p>
+                    <div class="feature-slide-footer">
+                      <span class="feature-benefit">✓ Up to 100% headcount predictability</span>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-slide" aria-roledescription="slide" aria-label="2 of 3">
+                  <article class="feature-card-slide">
+                    <div class="feature-slide-header">
+                      <div class="feature-icon-wrapper icon-gold">
+                        <span>⚡</span>
+                      </div>
+                      <span class="feature-slide-pill" style="background: #fef3c7; color: #b45309;">Pillar 02 • Fast
+                        Counter Pass</span>
+                    </div>
+                    <h3>Express Collection Tracking</h3>
+                    <p>
+                      Mess staff verify student meal tokens with rapid scanning.
+                      Prevents duplicate plate issues and slashes line waiting times during peak dinner rush from 20
+                      minutes to under 3 seconds.
+                    </p>
+                    <div class="feature-slide-footer">
+                      <span class="feature-benefit">✓ 3-second rapid token collection</span>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-slide" aria-roledescription="slide" aria-label="3 of 3">
+                  <article class="feature-card-slide">
+                    <div class="feature-slide-header">
+                      <div class="feature-icon-wrapper icon-green">
+                        <span>🌱</span>
+                      </div>
+                      <span class="feature-slide-pill" style="background: #d1fae5; color: #047857;">Pillar 03 • Zero
+                        Food Waste</span>
+                    </div>
+                    <h3>Smart Food Waste Reduction</h3>
+                    <p>
+                      Kitchen staff cook according to verified real-time headcounts instead of wild guesswork,
+                      saving kilograms of food and hostel budget every single day while protecting campus
+                      sustainability.
+                    </p>
+                    <div class="feature-slide-footer">
+                      <span class="feature-benefit">✓ ~30% daily food waste reduction</span>
+                    </div>
+                  </article>
+                </div>
+
+              </div>
+            </div>
+
+            <button type="button" class="carousel-arrow carousel-arrow-next" id="carousel-btn-next"
+              aria-label="Next Feature">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="22" height="22">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Indicator Dots -->
+          <div class="carousel-controls">
+            <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Slide dots">
+              <button type="button" class="carousel-dot active" data-slide="0" aria-label="Slide 1" role="tab"
+                aria-selected="true"></button>
+              <button type="button" class="carousel-dot" data-slide="1" aria-label="Slide 2" role="tab"
+                aria-selected="false"></button>
+              <button type="button" class="carousel-dot" data-slide="2" aria-label="Slide 3" role="tab"
+                aria-selected="false"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           PORTAL ACCESS SELECTOR (FOR HACKATHON EVALUATORS & USERS)
+           ==================================================================== -->
+      <section class="section-container">
+        <div class="section-header">
+          <span class="section-badge">Interactive Demo Portals</span>
+          <h2 class="section-title">Select A Role to Test The Interface</h2>
+          <p class="section-subtitle">
+            Experience both perspectives of the hostel ecosystem in this Phase 1 prototype.
+          </p>
+        </div>
+
+        <div class="roles-grid">
+          <!-- Student Role Card -->
+          <div class="role-card role-student">
+            <div class="role-card-header">
+              <span class="role-tag">Student View</span>
+              <h3>Student Dashboard</h3>
+              <p>For hostellers checking menus, booking meal slots, and viewing their digital meal pass.</p>
+              <ul class="role-features-list">
+                <li>View today's Breakfast, Lunch, and Dinner menus</li>
+                <li>One-click registration & deadline countdowns</li>
+                <li>Digital QR meal token mockup</li>
+                <li>Weekly upcoming meal preview</li>
+              </ul>
+            </div>
+            <a href="student.html" class="btn btn-primary btn-block">Enter Student Portal &rarr;</a>
+          </div>
+
+          <!-- Admin Role Card -->
+          <div class="role-card role-admin">
+            <div class="role-card-header">
+              <span class="role-tag">Staff & Warden View</span>
+              <h3>Admin & Kitchen Console</h3>
+              <p>For mess wardens and culinary staff monitoring headcounts and kitchen prep targets.</p>
+              <ul class="role-features-list">
+                <li>Real-time headcount per meal slot (Demo counts)</li>
+                <li>Live QR token scan simulation tool</li>
+                <li>Searchable student meal registration roster</li>
+                <li>Estimated leftovers & waste analytics</li>
+              </ul>
+            </div>
+            <a href="admin.html" class="btn btn-secondary btn-block">Enter Admin Console &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           REVIEWS & COMMUNITY FEEDBACK SECTION
+           ==================================================================== -->
+      <section id="feedback" class="section-container" style="padding-top: 1rem;">
+        <div class="section-header">
+          <span class="section-badge">Student & Hosteller Voice</span>
+          <h2 class="section-title">Refectory Feedback & Daily Ratings</h2>
+          <p class="section-subtitle">
+            Help our culinary team continuously improve taste, portion accuracy, and dining cleanliness.
+          </p>
+        </div>
+
+        <div class="feedback-grid">
+          <!-- Left: Feedback Submission Card -->
+          <div class="feedback-card">
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary); margin-bottom: 0.35rem;">
+              Share Your Meal Experience
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+              Rate your recent hostel meal or report any counter issues directly to the mess warden.
+            </p>
+
+            <form id="mess-feedback-form" class="feedback-form">
+              <div class="form-group">
+                <label class="form-label" for="feedback-meal-slot">Select Meal Slot</label>
+                <select id="feedback-meal-slot" class="form-select">
+                  <option value="Lunch">Lunch (Paneer Butter Masala & Jeera Rice)</option>
+                  <option value="Breakfast">Breakfast (Idli, Vada & Sambar)</option>
+                  <option value="Dinner">Dinner (Dal Makhani & Kadai Veg)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Overall Rating</label>
+                <div class="star-rating" aria-label="Star Rating">
+                  <span data-star="1" class="active">★</span>
+                  <span data-star="2" class="active">★</span>
+                  <span data-star="3" class="active">★</span>
+                  <span data-star="4" class="active">★</span>
+                  <span data-star="5" class="active">★</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Feedback Focus Area</label>
+                <div class="category-chips">
+                  <button type="button" class="chip-btn active">Taste & Flavor</button>
+                  <button type="button" class="chip-btn">Portion Size</button>
+                  <button type="button" class="chip-btn">Hygiene & Cleanliness</button>
+                  <button type="button" class="chip-btn">Queue & Token Speed</button>
+                  <button type="button" class="chip-btn">Special Diet Request</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="feedback-comments">Your Comments & Suggestions</label>
+                <textarea id="feedback-comments" class="form-textarea"
+                  placeholder="e.g. Sambar was hot and tasty! Would love extra salad with dinner..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="align-self: flex-start;">
+                <span>📨 Submit Feedback</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Right: Feedback Insights & Recent Reviews -->
+          <div class="feedback-stats-card">
+            <div>
+              <div class="feedback-stat-summary">
+                <div class="satisfaction-score">4.7</div>
+                <div>
+                  <div style="color: var(--accent-gold-bright); font-size: 1.15rem;">★★★★★</div>
+                  <div style="font-size: 0.825rem; font-weight: 700; color: var(--primary);">Overall Mess Satisfaction
+                  </div>
+                  <small style="color: var(--text-muted); font-size: 0.75rem;">Based on 340+ verified student reviews
+                    this week</small>
+                </div>
+              </div>
+
+              <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--primary); margin-bottom: 0.75rem;">
+                Recent Student Reviews
+              </h4>
+
+              <div class="reviews-list">
+                <div class="review-item">
+                  <div class="review-header">
+                    <span>Aarav S. (Lunch • Taste & Flavor)</span>
+                    <span>⭐⭐⭐⭐⭐</span>
+                  </div>
+                  <p class="review-text">"Paneer Butter Masala was rich and flavorful today. Warm rotis were served
+                    promptly!"</p>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-header">
+                    <span>Priya I. (Breakfast • Queue Speed)</span>
+                    <span>⭐⭐⭐⭐</span>
+                  </div>
+                  <p class="review-text">"The new digital token flow made breakfast pickup twice as fast compared to
+                    last semester."</p>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-header">
+                    <span>Rohan V. (Dinner • Portion Size)</span>
+                    <span>⭐⭐⭐⭐⭐</span>
+                  </div>
+                  <p class="review-text">"Generous portions and zero wastage because registration locked counts in
+                    advance."</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.775rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
+              <span>🛡️</span>
+              <span>All reviews are audited daily by the student mess committee & head warden.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/mystical-tarot-cards-glowing-starry-sky-illustration.jpg" alt="Kamar-Taj Logo"
+          style="width: 28px; height: 28px;">
+        <span>Kamar-Taj — The Refectory</span>
+      </div>
+
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="student.html">Student Portal</a></li>
+        <li><a href="admin.html">Admin Portal</a></li>
+        <li><a href="index.html#feedback">Feedback</a></li>
+      </ul>
+
+      <div class="footer-disclaimer">
+        <p>
+          🎓 College Hackathon Project Prototype • Phase 1: Frontend Foundation (HTML / CSS / Vanilla JS).
+          All student records and registration counts are fictional demonstration data.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
